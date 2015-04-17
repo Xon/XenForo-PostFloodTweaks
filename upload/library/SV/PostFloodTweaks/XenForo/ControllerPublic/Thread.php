@@ -11,7 +11,7 @@ class SV_PostFloodTweaks_XenForo_ControllerPublic_Thread extends XFCP_SV_PostFlo
 
         if ($this->_input->inRequest('more_options'))
         {
-            return $this->responseReroute(__CLASS__, 'reply');
+            return $this->responseReroute("XenForo_ControllerPublic_Thread", 'reply');
         }
 
         $threadId = $this->_input->filterSingle('thread_id', XenForo_Input::UINT);
