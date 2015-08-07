@@ -23,7 +23,7 @@ class SV_PostFloodTweaks_XenForo_ControllerPublic_Post extends XFCP_SV_PostFlood
             {
                 $nodeid = $forum['node_id'];
             }
-        
+
             if (!empty($threadid) && $visitor->hasPermission('forum', 'sv_likeflood_thread_on'))
             {
                 $rate_limit = $visitor->hasPermission('forum', 'sv_likeflood_thread');
@@ -59,12 +59,12 @@ class SV_PostFloodTweaks_XenForo_ControllerPublic_Post extends XFCP_SV_PostFlood
             }
             else if ($rate_limit > 0)
             {
-                $this->assertNotFlooding('like_', $rate_limit);
+                $this->assertNotFlooding('like', $rate_limit);
                 return;
             }
         }
     }
-    
+
     public function actionRate()
     {
         if ($this->_request->isPost())
