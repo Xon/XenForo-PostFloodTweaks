@@ -32,4 +32,34 @@ class SV_PostFloodTweaks_XenForo_ControllerHelper_ForumThreadPost extends XFCP_S
 
         return $response;
     }
+
+	public function assertPostValidAndViewable($postId, array $postFetchOptions = array(),
+		array $threadFetchOptions = array(), array $forumFetchOptions = array()
+	)
+    {
+        $readUserId = isset($postFetchOptions['readUserId']) ? $postFetchOptions['readUserId'] : 0;
+
+        if($readUserId)
+        {
+            $key = $postId.'_'.$readUserId;
+            if (!isset($this->_controller->ftp_post_cache))
+            {
+                $this->_controller->ftp_post_cache = array();
+            }
+
+            if (isset($this->_controller->ftp_post_cache[$key]))
+            {
+                return $this->_controller->ftp_post_cache[$key];
+            }
+        }
+
+        $response = parent::assertPostValidAndViewable($postId, $postFetchOptions, $threadFetchOptions, $forumFetchOptions);
+
+        if ($readUserId)
+        {
+            $this->_controller->ftp_post_cache[$key] = $response;
+        }
+
+        return $response;
+    }
 }

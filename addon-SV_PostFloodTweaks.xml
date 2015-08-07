@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="SV_PostFloodTweaks" title="Post Flood Tweaks" version_string="1.0.1" version_id="100010" url="https://xenforo.com/community/resources/post-flood-tweaks.4129/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+<addon addon_id="SV_PostFloodTweaks" title="Post Flood Tweaks" version_string="1.1.0" version_id="101000" url="https://xenforo.com/community/resources/post-flood-tweaks.4129/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -7,6 +7,7 @@
   <admin_template_modifications/>
   <code_events/>
   <code_event_listeners>
+    <listener event_id="load_class" execute_order="10" callback_class="SV_PostFloodTweaks_Listener" callback_method="load_class" active="1" hint="XenForo_ControllerPublic_Post" description="XenForo_ControllerPublic_Post"/>
     <listener event_id="load_class" execute_order="10" callback_class="SV_PostFloodTweaks_Listener" callback_method="load_class" active="1" hint="XenForo_ControllerPublic_Thread" description="XenForo_ControllerPublic_Thread"/>
     <listener event_id="load_class" execute_order="10" callback_class="SV_PostFloodTweaks_Listener" callback_method="load_class" active="1" hint="XenForo_ControllerHelper_ForumThreadPost" description="XenForo_ControllerHelper_ForumThreadPost"/>
   </code_event_listeners>
@@ -17,6 +18,11 @@
   <permissions>
     <permission_groups/>
     <permissions>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_general" permission_type="integer" depend_permission_id="like" default_value_int="0" interface_group_id="forumPermissions" display_order="11"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_node" permission_type="integer" depend_permission_id="sv_likeflood_node_on" default_value_int="0" interface_group_id="forumPermissions" display_order="13"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_node_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="forumPermissions" display_order="12"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_thread" permission_type="integer" depend_permission_id="sv_likeflood_thread_on" default_value_int="0" interface_group_id="forumPermissions" display_order="15"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_thread_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="forumPermissions" display_order="14"/>
       <permission permission_group_id="forum" permission_id="sv_postflood_general" permission_type="integer" depend_permission_id="postReply" default_value_int="0" interface_group_id="forumPermissions" display_order="11"/>
       <permission permission_group_id="forum" permission_id="sv_postflood_node" permission_type="integer" depend_permission_id="sv_postflood_node_on" default_value_int="0" interface_group_id="forumPermissions" display_order="13"/>
       <permission permission_group_id="forum" permission_id="sv_postflood_node_on" permission_type="flag" depend_permission_id="postReply" default_value="unset" interface_group_id="forumPermissions" display_order="12"/>
@@ -26,6 +32,11 @@
     <interface_groups/>
   </permissions>
   <phrases>
+    <phrase title="permission_forum_sv_likeflood_general" version_id="100000" version_string="1.0.0"><![CDATA[Like - General Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_likeflood_node" version_id="100000" version_string="1.0.0"><![CDATA[Like - Per Node Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_likeflood_node_on" version_id="100000" version_string="1.0.0"><![CDATA[Like - Enable Per Node Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_likeflood_thread" version_id="100000" version_string="1.0.0"><![CDATA[Like - Per Thread Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_likeflood_thread_on" version_id="100000" version_string="1.0.0"><![CDATA[Like - Enable Per Thread Rate Limit]]></phrase>    
     <phrase title="permission_forum_sv_postflood_general" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - General Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_node" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - Per Node Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_node_on" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - Enable Per Node Rate Limit]]></phrase>
