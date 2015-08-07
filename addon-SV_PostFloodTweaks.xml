@@ -18,30 +18,33 @@
   <permissions>
     <permission_groups/>
     <permissions>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_general" permission_type="integer" depend_permission_id="like" default_value_int="0" interface_group_id="forumPermissions" display_order="11"/>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_node" permission_type="integer" depend_permission_id="sv_likeflood_node_on" default_value_int="0" interface_group_id="forumPermissions" display_order="13"/>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_node_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="forumPermissions" display_order="12"/>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_thread" permission_type="integer" depend_permission_id="sv_likeflood_thread_on" default_value_int="0" interface_group_id="forumPermissions" display_order="15"/>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_thread_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="forumPermissions" display_order="14"/>
-      <permission permission_group_id="forum" permission_id="sv_postflood_general" permission_type="integer" depend_permission_id="postReply" default_value_int="0" interface_group_id="forumPermissions" display_order="11"/>
-      <permission permission_group_id="forum" permission_id="sv_postflood_node" permission_type="integer" depend_permission_id="sv_postflood_node_on" default_value_int="0" interface_group_id="forumPermissions" display_order="13"/>
-      <permission permission_group_id="forum" permission_id="sv_postflood_node_on" permission_type="flag" depend_permission_id="postReply" default_value="unset" interface_group_id="forumPermissions" display_order="12"/>
-      <permission permission_group_id="forum" permission_id="sv_postflood_thread" permission_type="integer" depend_permission_id="sv_postflood_thread_on" default_value_int="0" interface_group_id="forumPermissions" display_order="15"/>
-      <permission permission_group_id="forum" permission_id="sv_postflood_thread_on" permission_type="flag" depend_permission_id="postReply" default_value="unset" interface_group_id="forumPermissions" display_order="14"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_general" permission_type="integer" depend_permission_id="like" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="100"/>      
+      <permission permission_group_id="forum" permission_id="sv_likeflood_node" permission_type="integer" depend_permission_id="sv_likeflood_node_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="121"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_node_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="120"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_thread" permission_type="integer" depend_permission_id="sv_likeflood_thread_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="131"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_thread_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="130"/>      
+      <permission permission_group_id="forum" permission_id="sv_postflood_general" permission_type="integer" depend_permission_id="postReply" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="200"/>
+      <permission permission_group_id="forum" permission_id="sv_postflood_node" permission_type="integer" depend_permission_id="sv_postflood_node_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="221"/>
+      <permission permission_group_id="forum" permission_id="sv_postflood_node_on" permission_type="flag" depend_permission_id="postReply" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="220"/>
+      <permission permission_group_id="forum" permission_id="sv_postflood_thread" permission_type="integer" depend_permission_id="sv_postflood_thread_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="231"/>
+      <permission permission_group_id="forum" permission_id="sv_postflood_thread_on" permission_type="flag" depend_permission_id="postReply" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="230"/>
     </permissions>
-    <interface_groups/>
+    <interface_groups>
+      <interface_group interface_group_id="sv_ForumRateLimiting" display_order="11"/>
+    </interface_groups>
   </permissions>
   <phrases>
     <phrase title="permission_forum_sv_likeflood_general" version_id="100000" version_string="1.0.0"><![CDATA[Like - General Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_likeflood_node" version_id="100000" version_string="1.0.0"><![CDATA[Like - Per Node Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_likeflood_node_on" version_id="100000" version_string="1.0.0"><![CDATA[Like - Enable Per Node Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_likeflood_thread" version_id="100000" version_string="1.0.0"><![CDATA[Like - Per Thread Rate Limit]]></phrase>
-    <phrase title="permission_forum_sv_likeflood_thread_on" version_id="100000" version_string="1.0.0"><![CDATA[Like - Enable Per Thread Rate Limit]]></phrase>    
+    <phrase title="permission_forum_sv_likeflood_thread_on" version_id="100000" version_string="1.0.0"><![CDATA[Like - Enable Per Thread Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_general" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - General Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_node" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - Per Node Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_node_on" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - Enable Per Node Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_thread" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - Per Thread Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_postflood_thread_on" version_id="100000" version_string="1.0.0"><![CDATA[Post Reply - Enable Per Thread Rate Limit]]></phrase>
+    <phrase title="permission_interface_sv_ForumRateLimiting" version_id="101000" version_string="1.1.0"><![CDATA[Forum Rate Limiting]]></phrase>
   </phrases>
   <route_prefixes/>
   <style_properties/>
