@@ -33,9 +33,9 @@ class SV_PostFloodTweaks_XenForo_ControllerHelper_ForumThreadPost extends XFCP_S
         return $response;
     }
 
-	public function assertPostValidAndViewable($postId, array $postFetchOptions = array(),
-		array $threadFetchOptions = array(), array $forumFetchOptions = array()
-	)
+    public function assertPostValidAndViewable($postId, array $postFetchOptions = array(),
+        array $threadFetchOptions = array(), array $forumFetchOptions = array()
+    )
     {
         $readUserId = isset($postFetchOptions['readUserId']) ? $postFetchOptions['readUserId'] : 0;
 
