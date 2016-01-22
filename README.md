@@ -13,6 +13,12 @@ Provides user group permissions for the following post rate limiting options:
 - Like - Enable Per node rate limiting
 - Like - Per node post rate limiting - delay between posts in seconds
 - Like - General rate limiting - delay between posts in seconds
+- Delete - Enable Per thread rate limiting
+- Delete - Per thread rate limiting - delay between deleting posts in seconds
+- Delete - Enable Per node rate limiting
+- Delete - Per node post rate limiting - delay between deleting posts in seconds
+- Delete - General rate limiting - delay between posts in seconds
+
 
 
 This permits the posting/Liking rate to be managed per node, and per user group. The number is the delay in seconds between posts.

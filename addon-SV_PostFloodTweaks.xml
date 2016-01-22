@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="SV_PostFloodTweaks" title="Post Flood Tweaks" version_string="1.1.0a" version_id="101001" url="https://xenforo.com/community/resources/post-flood-tweaks.4129/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+<addon addon_id="SV_PostFloodTweaks" title="Post Flood Tweaks" version_string="1.1.1" version_id="101010" url="https://xenforo.com/community/resources/post-flood-tweaks.4129/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -18,11 +18,16 @@
   <permissions>
     <permission_groups/>
     <permissions>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_general" permission_type="integer" depend_permission_id="like" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="100"/>      
+      <permission permission_group_id="forum" permission_id="sv_deleteflood_general" permission_type="integer" depend_permission_id="deleteOwnPost" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="300"/>
+      <permission permission_group_id="forum" permission_id="sv_deleteflood_node" permission_type="integer" depend_permission_id="sv_deleteflood_node_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="321"/>
+      <permission permission_group_id="forum" permission_id="sv_deleteflood_node_on" permission_type="flag" depend_permission_id="deleteOwnPost" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="320"/>
+      <permission permission_group_id="forum" permission_id="sv_deleteflood_thread" permission_type="integer" depend_permission_id="sv_deleteflood_thread_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="331"/>
+      <permission permission_group_id="forum" permission_id="sv_deleteflood_thread_on" permission_type="flag" depend_permission_id="deleteOwnPost" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="330"/>
+      <permission permission_group_id="forum" permission_id="sv_likeflood_general" permission_type="integer" depend_permission_id="like" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="100"/>
       <permission permission_group_id="forum" permission_id="sv_likeflood_node" permission_type="integer" depend_permission_id="sv_likeflood_node_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="121"/>
       <permission permission_group_id="forum" permission_id="sv_likeflood_node_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="120"/>
       <permission permission_group_id="forum" permission_id="sv_likeflood_thread" permission_type="integer" depend_permission_id="sv_likeflood_thread_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="131"/>
-      <permission permission_group_id="forum" permission_id="sv_likeflood_thread_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="130"/>      
+      <permission permission_group_id="forum" permission_id="sv_likeflood_thread_on" permission_type="flag" depend_permission_id="like" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="130"/>
       <permission permission_group_id="forum" permission_id="sv_postflood_general" permission_type="integer" depend_permission_id="postReply" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="200"/>
       <permission permission_group_id="forum" permission_id="sv_postflood_node" permission_type="integer" depend_permission_id="sv_postflood_node_on" default_value_int="0" interface_group_id="sv_ForumRateLimiting" display_order="221"/>
       <permission permission_group_id="forum" permission_id="sv_postflood_node_on" permission_type="flag" depend_permission_id="postReply" default_value="unset" interface_group_id="sv_ForumRateLimiting" display_order="220"/>
@@ -34,6 +39,11 @@
     </interface_groups>
   </permissions>
   <phrases>
+    <phrase title="permission_forum_sv_deleteflood_general" version_id="101010" version_string="1.1.1"><![CDATA[Delete Post - General Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_deleteflood_node" version_id="101010" version_string="1.1.1"><![CDATA[Delete Post - Per Node Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_deleteflood_node_on" version_id="101010" version_string="1.1.1"><![CDATA[Delete Post - Enable Per Node Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_deleteflood_thread" version_id="101010" version_string="1.1.1"><![CDATA[Delete Post - Per Thread Rate Limit]]></phrase>
+    <phrase title="permission_forum_sv_deleteflood_thread_on" version_id="101010" version_string="1.1.1"><![CDATA[Delete Post - Enable Per Thread Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_likeflood_general" version_id="100000" version_string="1.0.0"><![CDATA[Like - General Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_likeflood_node" version_id="100000" version_string="1.0.0"><![CDATA[Like - Per Node Rate Limit]]></phrase>
     <phrase title="permission_forum_sv_likeflood_node_on" version_id="100000" version_string="1.0.0"><![CDATA[Like - Enable Per Node Rate Limit]]></phrase>
